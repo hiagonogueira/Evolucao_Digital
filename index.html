@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacote Premium de E-books</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0b1e3a;
+            color: #fff;
+        }
+
+        header {
+            background: linear-gradient(to right, #004aad, #0073ff);
+            padding: 25px 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .section {
+            margin: 20px;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+        }
+
+        h1, h2 {
+            color: #ffca28;
+        }
+
+        .benefit-box {
+            display: flex;
+            gap: 12px;
+            background: rgba(255,255,255,0.08);
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 12px;
+            align-items: center;
+        }
+
+        .benefit-icon {
+            background: #ffca28;
+            color: #000;
+            width: 42px;
+            height: 42px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: block;
+            width: 90%;
+            margin: 18px auto 0 auto;
+            background: linear-gradient(90deg, #f7d15a, #f2b400);
+            padding: 16px;
+            text-align: center;
+            border-radius: 16px;
+            color: #000;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 0 15px #f2b400aa;
+            transition: 0.25s ease-in-out;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #f2b400;
+        }
+
+        .countdown-box {
+            background: linear-gradient(135deg, #ffffff, #e6e6e6);
+            color: #000;
+            padding: 25px;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 35px;
+            box-shadow: 
+                0 4px 25px rgba(255,255,255,0.15),
+                0 0 25px rgba(255,215,0,0.25);
+            border: 2px solid #ffd95a;
+        }
+
+        .counter {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .counter-item {
+            flex: 1;
+            background: linear-gradient(180deg, #0d2a52, #051428);
+            color: #fff;
+            padding: 22px 0;
+            border-radius: 18px;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 
+                0 0 12px rgba(255,255,255,0.15),
+                inset 0 0 12px rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.2);
+            letter-spacing: 1px;
+        }
+
+        .counter-item span {
+            font-size: 34px;
+            font-weight: bold;
+            display: block;
+            color: #ffd95a;
+            text-shadow: 0 0 8px rgba(255,215,0,0.6);
+        }
+
+        .whatsapp-btn {
+            display: block;
+            width: 90%;
+            margin: 0 auto;
+            background: linear-gradient(90deg, #25D366, #1ebe5d);
+            padding: 16px;
+            border-radius: 15px;
+            text-align: center;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 0 18px #25D366;
+            transition: 0.25s ease-in-out;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #1ed85f;
+        }
+
+        .email-btn {
+            display: block;
+            width: 90%;
+            margin: 15px auto 0 auto;
+            background: linear-gradient(90deg, #1e88e5, #42a5f5);
+            padding: 16px;
+            border-radius: 15px;
+            text-align: center;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 0 18px #1e88e5aa;
+            transition: 0.25s ease-in-out;
+        }
+
+        .email-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px #42a5f5;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    Oferta válida apenas hoje — Últimas vagas!
+</header>
+
+<div class="section">
+    <h1>Transforme seu conhecimento em renda com e-books prontos</h1>
+    <p>
+        Pacote completo com <strong>9 e-books editáveis</strong> + suporte e mentoria 24h.
+        Tudo pronto para você começar a vender hoje mesmo.
+    </p>
+
+    <a href="#btn-final" class="btn">Acessar Pacote Completo</a>
+</div>
+
+<div class="section">
+    <h2>Benefícios do Pacote Premium</h2>
+
+    <div class="benefit-box"><div class="benefit-icon">📱</div>Editável pelo celular — sem complicação.</div>
+    <div class="benefit-box"><div class="benefit-icon">🚀</div>Comece a vender hoje — arquivos prontos.</div>
+    <div class="benefit-box"><div class="benefit-icon">♾️</div>Revenda ilimitadamente — 100% de lucro.</div>
+    <div class="benefit-box"><div class="benefit-icon">🎯</div>Aprovado no Instagram — ideal para anúncios.</div>
+    <div class="benefit-box"><div class="benefit-icon">🧠</div>Conteúdos organizados para escalar rápido.</div>
+</div>
+
+<div class="section">
+    <h2>Conteúdo Premium</h2>
+    <p><strong>9 e-books editáveis</strong> e prontos para revenda.</p>
+
+    <div class="benefit-box">📘 Módulo 1 — E-books prontos (9 unidades)</div>
+    <div class="benefit-box">🎨 Módulo 2 — Capas editáveis</div>
+    <div class="benefit-box">📲 Módulo 3 — Templates de anúncios</div>
+    <div class="benefit-box">🧠 Módulo 4 — Guia de vendas rápido</div>
+
+    <div style="text-align: center; margin-top: 25px;">
+        <h2 style="
+            color: #00ff99;
+            font-size: 38px;
+            font-weight: 800;
+            text-shadow: 0 0 12px rgba(0,255,180,0.7);
+            margin-bottom: 10px;
+        ">
+            🔥 R$ 9,90 🔥
+        </h2>
+    </div>
+
+    <!-- BOTÃO FINAL COM O LINK DA KIWIFY -->
+    <a id="btn-final" 
+       class="btn"
+       href="https://pay.kiwify.com.br/8Vma5gd">
+       Acessar Pacote Completo
+    </a>
+
+    <div class="countdown-box">
+        Oferta se encerra em:
+        <div class="counter">
+            <div class="counter-item"><span id="h">00</span>Horas</div>
+            <div class="counter-item"><span id="m">00</span>Minutos</div>
+            <div class="counter-item"><span id="s">00</span>Segundos</div>
+        </div>
+    </div>
+</div>
+
+<div class="section" style="background:#001d3d;">
+    <h2>📞 Entre em contato</h2>
+
+    <a class="whatsapp-btn"
+       href="https://wa.me/5538999294883?text=Ola%20Hiago,%20Quero%20acessar%20o%20seu%20grupo%20*MILIONARIO%20RAPIDO*%20🚀🔥.">
+        💬 Fale Conosco no WhatsApp
+    </a>
+
+    <a class="email-btn" 
+       href="mailto:hiago22nogueira@gmail.com?subject=Acesso%20ao%20Grupo&body=Ola%20Hiago,%20Quero%20acessar%20o%20seu%20grupo%20*MILIONARIO%20RAPIDO*%20🚀🔥.">
+        ✉️ Enviar E-mail
+    </a>
+</div>
+
+<script>
+    let t = 3 * 60 * 60;
+    function countdown() {
+        document.getElementById("h").textContent = String(Math.floor(t / 3600)).padStart(2, "0");
+        document.getElementById("m").textContent = String(Math.floor((t % 3600) / 60)).padStart(2, "0");
+        document.getElementById("s").textContent = String(t % 60).padStart(2, "0");
+        t--;
+        if (t >= 0) setTimeout(countdown, 1000);
+    }
+    countdown();
+</script>
+
+</body>
+</html>
