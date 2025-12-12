@@ -1,263 +1,259 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pacote Premium de E-books</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pacote Premium de E-books</title>
 
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
+  <style>
+    :root{
+      --bg:#0b1e3a;
+      --card:#0f2a4f;
+      --card-2:#122f57;
+      --accent:#ffca28;
+      --btn-start:linear-gradient(90deg,#ffd43b,#ffc300);
+      --btn-primary-shadow: 0 0 20px rgba(255,215,88,0.25);
+      --rounded:14px;
+      --maxw:920px;
+    }
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0b1e3a;
-            color: #fff;
-        }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#fff;
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height:1.45;
+    }
 
-        header {
-            background: linear-gradient(to right, #004aad, #0073ff);
-            padding: 25px 15px;
-            text-align: center;
-            font-weight: bold;
-            font-size: 20px;
-        }
+    .wrap{
+      width:95%;
+      max-width:var(--maxw);
+      margin:0 auto;
+      padding:22px 0 60px;
+    }
 
-        .section {
-            margin: 20px;
-            padding: 20px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 15px;
-        }
+    header.ribbon{
+      background: linear-gradient(90deg,#0e5df6,#0073ff);
+      padding:14px 0;
+      text-align:center;
+      font-weight:700;
+      color:#fff;
+    }
 
-        h1, h2 {
-            color: #ffca28;
-        }
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:20px;
+      padding:28px;
+      margin-top:18px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.03);
+    }
 
-        .benefit-box {
-            display: flex;
-            gap: 12px;
-            background: rgba(255,255,255,0.08);
-            padding: 15px;
-            border-radius: 12px;
-            margin-top: 12px;
-            align-items: center;
-        }
+    .hero .title{
+      color:var(--accent);
+      font-size:28px;
+      font-weight:800;
+      margin:6px 0 10px;
+    }
 
-        .benefit-icon {
-            background: #ffca28;
-            color: #000;
-            width: 42px;
-            height: 42px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 10px;
-            font-size: 20px;
-            font-weight: bold;
-        }
+    .hero .lead{
+      color:#d3dff2;
+      font-size:15px;
+      margin-bottom:18px;
+    }
 
-        .btn {
-            display: block;
-            width: 90%;
-            margin: 18px auto 0 auto;
-            background: linear-gradient(90deg, #f7d15a, #f2b400);
-            padding: 16px;
-            text-align: center;
-            border-radius: 16px;
-            color: #000;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
-            box-shadow: 0 0 15px #f2b400aa;
-            transition: 0.25s ease-in-out;
-        }
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      text-align:center;
+      padding:14px 20px;
+      border-radius:12px;
+      font-weight:800;
+      font-size:16px;
+      box-shadow: var(--btn-primary-shadow);
+    }
 
-        .btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px #f2b400;
-        }
+    .btn-yellow{
+      background:var(--btn-start);
+      color:#000;
+      min-width:230px;
+    }
 
-        .countdown-box {
-            background: linear-gradient(135deg, #ffffff, #e6e6e6);
-            color: #000;
-            padding: 25px;
-            border-radius: 25px;
-            text-align: center;
-            font-size: 22px;
-            font-weight: bold;
-            margin-top: 35px;
-            box-shadow: 
-                0 4px 25px rgba(255,255,255,0.15),
-                0 0 25px rgba(255,215,0,0.25);
-            border: 2px solid #ffd95a;
-        }
+    .section{
+      margin-top:22px;
+      background:var(--card);
+      padding:18px;
+      border-radius:var(--rounded);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+    }
 
-        .counter {
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-            margin-top: 18px;
-        }
+    .section h2{
+      color:var(--accent);
+      font-size:22px;
+      margin:0 0 12px;
+      font-weight:800;
+    }
 
-        .counter-item {
-            flex: 1;
-            background: linear-gradient(180deg, #0d2a52, #051428);
-            color: #fff;
-            padding: 22px 0;
-            border-radius: 18px;
-            font-size: 20px;
-            font-weight: bold;
-            box-shadow: 
-                0 0 12px rgba(255,255,255,0.15),
-                inset 0 0 12px rgba(255,255,255,0.10);
-            border: 1px solid rgba(255,255,255,0.2);
-            letter-spacing: 1px;
-        }
+    .benefit{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      background:var(--card-2);
+      padding:12px;
+      border-radius:12px;
+      margin:10px 0;
+    }
 
-        .counter-item span {
-            font-size: 34px;
-            font-weight: bold;
-            display: block;
-            color: #ffd95a;
-            text-shadow: 0 0 8px rgba(255,215,0,0.6);
-        }
+    .benefit p{
+      margin:0;
+      color:#dbe9ff;
+      font-size:15px;
+    }
 
-        .whatsapp-btn {
-            display: block;
-            width: 90%;
-            margin: 0 auto;
-            background: linear-gradient(90deg, #25D366, #1ebe5d);
-            padding: 16px;
-            border-radius: 15px;
-            text-align: center;
-            color: #fff;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
-            box-shadow: 0 0 18px #25D366;
-            transition: 0.25s ease-in-out;
-        }
+    .product-area{
+      margin-top:18px;
+      padding:18px;
+      background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+      border-radius:14px;
+    }
 
-        .whatsapp-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px #1ed85f;
-        }
+    .price-big{
+      text-align:center;
+      margin-top:10px;
+    }
 
-        .email-btn {
-            display: block;
-            width: 90%;
-            margin: 15px auto 0 auto;
-            background: linear-gradient(90deg, #1e88e5, #42a5f5);
-            padding: 16px;
-            border-radius: 15px;
-            text-align: center;
-            color: #fff;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
-            box-shadow: 0 0 18px #1e88e5aa;
-            transition: 0.25s ease-in-out;
-        }
+    .price-big .value{
+      font-size:40px;
+      font-weight:900;
+      color:#00ff9d;
+      text-shadow: 0 0 12px rgba(0,255,160,0.12);
+      margin-bottom:6px;
+    }
 
-        .email-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px #42a5f5;
-        }
-    </style>
+    .contact{
+      margin-top:22px;
+      padding:16px;
+      border-radius:12px;
+      background:#001d3d;
+    }
+
+    .contact a{ text-decoration:none; display:block; margin:10px 0; }
+  </style>
 </head>
 
 <body>
+  <header class="ribbon">Oferta válida apenas hoje — Últimas vagas!</header>
 
-<header>
-    Oferta válida apenas hoje — Últimas vagas!
-</header>
+  <main class="wrap">
 
-<div class="section">
-    <h1>Transforme seu conhecimento em renda com e-books prontos</h1>
-    <p>
-        Pacote completo com <strong>9 e-books editáveis</strong> + suporte e mentoria 24h.
-        Tudo pronto para você começar a vender hoje mesmo.
-    </p>
+    <!-- HERO -->
+    <section class="hero">
+      <h1 id="hero-title" class="title">
+        🚀 Transforme seu conhecimento em renda com os 2 melhores e-books para iniciantes 📚💰
+      </h1>
 
-    <a href="#btn-final" class="btn">Acessar Pacote Completo</a>
-</div>
+      <p class="lead">
+        Acesse o <strong>Pacote Inicial (R$ 9,90)</strong> com <strong>9 e-books editáveis</strong> prontos para venda
+        e o <strong>Produto Premium (R$ 37,90)</strong> com conteúdo avançado para escalar suas vendas.
+        Tudo pronto para você começar a lucrar ainda hoje — mesmo sem experiência.
+      </p>
 
-<div class="section">
-    <h2>Benefícios do Pacote Premium</h2>
+      <button 
+        onclick="document.getElementById('pacotes').scrollIntoView({ behavior: 'smooth' })"
+        style="padding:14px 26px;background:var(--btn-start);color:#000;border:none;border-radius:12px;font-weight:800;font-size:16px;cursor:pointer;margin-top:10px;box-shadow: var(--btn-primary-shadow);display:block;margin-left:auto;margin-right:auto;">
+        Ver pacotes disponíveis
+      </button>
+    </section>
 
-    <div class="benefit-box"><div class="benefit-icon">📱</div>Editável pelo celular — sem complicação.</div>
-    <div class="benefit-box"><div class="benefit-icon">🚀</div>Comece a vender hoje — arquivos prontos.</div>
-    <div class="benefit-box"><div class="benefit-icon">♾️</div>Revenda ilimitadamente — 100% de lucro.</div>
-    <div class="benefit-box"><div class="benefit-icon">🎯</div>Aprovado no Instagram — ideal para anúncios.</div>
-    <div class="benefit-box"><div class="benefit-icon">🧠</div>Conteúdos organizados para escalar rápido.</div>
-</div>
+    <!-- BENEFÍCIOS -->
+    <section class="section">
+      <h2>Benefícios do Pacote Premium</h2>
 
-<div class="section">
-    <h2>Conteúdo Premium</h2>
-    <p><strong>9 e-books editáveis</strong> e prontos para revenda.</p>
+      <div class="benefit"><div class="icon">📱</div><p><strong>Editável pelo celular</strong> — sem complicação.</p></div>
+      <div class="benefit"><div class="icon">🚀</div><p><strong>Comece a vender hoje</strong> — arquivos prontos.</p></div>
+      <div class="benefit"><div class="icon">♾️</div><p><strong>Revenda ilimitadamente</strong> — 100% do lucro é seu.</p></div>
+      <div class="benefit"><div class="icon">🎯</div><p><strong>Aprovado no Instagram</strong>.</p></div>
+      <div class="benefit"><div class="icon">❓</div><p><strong>Conteúdos organizados</strong>.</p></div>
+    </section>
 
-    <div class="benefit-box">📘 Módulo 1 — E-books prontos (9 unidades)</div>
-    <div class="benefit-box">🎨 Módulo 2 — Capas editáveis</div>
-    <div class="benefit-box">📲 Módulo 3 — Templates de anúncios</div>
-    <div class="benefit-box">🧠 Módulo 4 — Guia de vendas rápido</div>
+    <!-- PRODUTO PREMIUM -->
+    <section class="section">
+      <h2>🚀 Produto Premium – E-book Completo</h2>
 
-    <div style="text-align: center; margin-top: 25px;">
-        <h2 style="
-            color: #00ff99;
-            font-size: 38px;
-            font-weight: 800;
-            text-shadow: 0 0 12px rgba(0,255,180,0.7);
-            margin-bottom: 10px;
-        ">
-            🔥 R$ 9,90 🔥
-        </h2>
-    </div>
+      <p style="color:#dbe9ff;">Conteúdo aprofundado, templates e estratégias para vender diariamente.</p>
 
-    <!-- BOTÃO FINAL COM O LINK DA KIWIFY -->
-    <a id="btn-final" 
-       class="btn"
-       href="https://pay.kiwify.com.br/8Vma5gd">
-       Acessar Pacote Completo
-    </a>
+      <div class="benefit">📘 E-book completo</div>
+      <div class="benefit">💰 Estratégias avançadas</div>
+      <div class="benefit">📲 Material pronto</div>
+      <div class="benefit">♾️ Revenda liberada</div>
+      <div class="benefit">🔥 Alta conversão</div>
+    </section>
 
-    <div class="countdown-box">
-        Oferta se encerra em:
-        <div class="counter">
-            <div class="counter-item"><span id="h">00</span>Horas</div>
-            <div class="counter-item"><span id="m">00</span>Minutos</div>
-            <div class="counter-item"><span id="s">00</span>Segundos</div>
+    <!-- PACOTES -->
+    <section id="pacotes" class="product-area">
+      <h2 style="color:var(--accent);font-size:20px;font-weight:800;">
+        📚 Conteúdo Premium — como vem o material
+      </h2>
+
+      <div class="benefit" style="background:transparent;padding:8px 0;">
+        <p style="color:#dbe9ff;">
+          <strong>Pacote Inicial – R$ 9,90</strong><br>
+          • 9 e-books editáveis<br>
+          • Fácil de editar<br>
+          • Ideal para iniciantes
+        </p>
+      </div>
+
+      <div class="benefit" style="background:transparent;padding:8px 0;">
+        <p style="color:#dbe9ff;">
+          <strong>Produto Premium – R$ 37,90</strong><br>
+          • Estratégias avançadas<br>
+          • Templates profissionais<br>
+          • Para quem quer vender todos os dias
+        </p>
+      </div>
+
+      <div style="margin-top:12px;text-align:center;">
+
+        <div class="price-big">
+          <div class="value">🔥 R$ 9,90 🔥</div>
+          <div style="color:#cfeefc;font-size:14px;margin-bottom:10px;">Pacote Inicial</div>
+          <a class="btn btn-yellow" href="https://pay.kiwify.com.br/8Vma5gd" style="min-width:260px;">Quero o Pacote R$ 9,90</a>
         </div>
-    </div>
-</div>
 
-<div class="section" style="background:#001d3d;">
-    <h2>📞 Entre em contato</h2>
+        <div style="margin-top:16px;">
+          <div class="value" style="font-size:28px;color:#ffd97a;">
+            ⭐ <strong>R$ 37,90</strong> ⭐
+          </div>
 
-    <a class="whatsapp-btn"
-       href="https://wa.me/5538999294883?text=Ola%20Hiago,%20Quero%20acessar%20o%20seu%20grupo%20*MILIONARIO%20RAPIDO*%20🚀🔥.">
+          <div style="color:#cfeefc;font-size:14px;margin-bottom:10px;">Produto Premium</div>
+
+          <a class="btn btn-yellow"
+             href="https://pay.kiwify.com.br/OpAUnyd"
+             style="min-width:260px;">
+             Quero o Premium R$ 37,90
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="contact">
+      <h2 style="color:var(--accent);font-size:18px;">📞 Entre em contato</h2>
+
+      <a class="btn" style="background:linear-gradient(90deg,#25D366,#1ebe5d);color:#fff;"
+         href="https://wa.me/5531997099149?text=Ola%20Hiago,%20Quero%20acessar%20o%20seu%20grupo%20*MILIONARIO%20RAPIDO*%20🚀🔥.">
         💬 Fale Conosco no WhatsApp
-    </a>
+      </a>
 
-    <a class="email-btn" 
-       href="mailto:hiago22nogueira@gmail.com?subject=Acesso%20ao%20Grupo&body=Ola%20Hiago,%20Quero%20acessar%20o%20seu%20grupo%20*MILIONARIO%20RAPIDO*%20🚀🔥.">
+      <a class="btn" style="background:linear-gradient(90deg,#1e88e5,#42a5f5);color:#fff;margin-top:10px;"
+         href="mailto:hiago22nogueira@gmail.com?subject=Acesso%20ao%20Grupo&body=Ola%20Hiago,%20Quero%20acessar%20o%20seu%20grupo%20*MILIONARIO%20RAPIDO*%20🚀🔥.">
         ✉️ Enviar E-mail
-    </a>
-</div>
+      </a>
+    </section>
 
-<script>
-    let t = 3 * 60 * 60;
-    function countdown() {
-        document.getElementById("h").textContent = String(Math.floor(t / 3600)).padStart(2, "0");
-        document.getElementById("m").textContent = String(Math.floor((t % 3600) / 60)).padStart(2, "0");
-        document.getElementById("s").textContent = String(t % 60).padStart(2, "0");
-        t--;
-        if (t >= 0) setTimeout(countdown, 1000);
-    }
-    countdown();
-</script>
-
+  </main>
 </body>
 </html>
