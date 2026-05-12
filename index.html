@@ -1,259 +1,474 @@
-<!DOCTYPE html>
+
+
+<!doctype <html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pacote Premium de E-books</title>
-
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EvoluÃ§Ã£o DiÃ¡ria Pro - Sua Jornada Digital ComeÃ§a Aqui</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
   <style>
-    :root{
-      --bg:#0b1e3a;
-      --card:#0f2a4f;
-      --card-2:#122f57;
-      --accent:#ffca28;
-      --btn-start:linear-gradient(90deg,#ffd43b,#ffc300);
-      --btn-primary-shadow: 0 0 20px rgba(255,215,88,0.25);
-      --rounded:14px;
-      --maxw:920px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:#fff;
-      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
-      line-height:1.45;
+    html, body {
+      height: 100%;
+      width: 100%;
     }
 
-    .wrap{
-      width:95%;
-      max-width:var(--maxw);
-      margin:0 auto;
-      padding:22px 0 60px;
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+      color: #e5e7eb;
+      overflow-x: hidden;
     }
 
-    header.ribbon{
-      background: linear-gradient(90deg,#0e5df6,#0073ff);
-      padding:14px 0;
-      text-align:center;
-      font-weight:700;
-      color:#fff;
+    .app-wrapper {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
     }
 
-    .hero{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:20px;
-      padding:28px;
-      margin-top:18px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.35);
-      border: 1px solid rgba(255,255,255,0.03);
+    /* Gradientes e efeitos */
+    .glow-effect {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.15;
+      pointer-events: none;
     }
 
-    .hero .title{
-      color:var(--accent);
-      font-size:28px;
-      font-weight:800;
-      margin:6px 0 10px;
+    .glow-orange {
+      background: #ff6b35;
+      width: 400px;
+      height: 400px;
+      top: -100px;
+      right: -100px;
     }
 
-    .hero .lead{
-      color:#d3dff2;
-      font-size:15px;
-      margin-bottom:18px;
+    .glow-red {
+      background: #ff0055;
+      width: 300px;
+      height: 300px;
+      bottom: 20%;
+      left: -150px;
     }
 
-    .btn{
-      display:inline-block;
-      text-decoration:none;
-      text-align:center;
-      padding:14px 20px;
-      border-radius:12px;
-      font-weight:800;
-      font-size:16px;
-      box-shadow: var(--btn-primary-shadow);
+    /* AnimaÃ§Ãµes */
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .btn-yellow{
-      background:var(--btn-start);
-      color:#000;
-      min-width:230px;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
 
-    .section{
-      margin-top:22px;
-      background:var(--card);
-      padding:18px;
-      border-radius:var(--rounded);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+    @keyframes pulse-glow {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 40px rgba(255, 107, 53, 0.6);
+      }
     }
 
-    .section h2{
-      color:var(--accent);
-      font-size:22px;
-      margin:0 0 12px;
-      font-weight:800;
+    .hero-title {
+      animation: slideInUp 0.8s ease-out;
+      font-size: 3.5rem;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ff6b35 0%, #ff0055 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    .benefit{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      background:var(--card-2);
-      padding:12px;
-      border-radius:12px;
-      margin:10px 0;
+    .hero-subtitle {
+      animation: slideInUp 0.8s ease-out 0.1s both;
+      font-size: 1.3rem;
+      color: #9ca3af;
+      font-weight: 500;
     }
 
-    .benefit p{
-      margin:0;
-      color:#dbe9ff;
-      font-size:15px;
+    .benefit-card {
+      animation: slideInUp 0.8s ease-out forwards;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 107, 53, 0.2);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
     }
 
-    .product-area{
-      margin-top:18px;
-      padding:18px;
-      background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
-      border-radius:14px;
+    .benefit-card:hover {
+      border-color: rgba(255, 107, 53, 0.5);
+      background: rgba(255, 107, 53, 0.1);
+      transform: translateY(-4px);
     }
 
-    .price-big{
-      text-align:center;
-      margin-top:10px;
+    .benefit-icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ff6b35 0%, #ff0055 100%);
+      border-radius: 8px;
+      margin-bottom: 1rem;
     }
 
-    .price-big .value{
-      font-size:40px;
-      font-weight:900;
-      color:#00ff9d;
-      text-shadow: 0 0 12px rgba(0,255,160,0.12);
-      margin-bottom:6px;
+    .cta-button {
+      background: linear-gradient(135deg, #ff6b35 0%, #ff0055 100%);
+      border: none;
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 1.2rem 3rem;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+      animation: slideInUp 0.8s ease-out 0.3s both;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
-    .contact{
-      margin-top:22px;
-      padding:16px;
-      border-radius:12px;
-      background:#001d3d;
+    .cta-button:hover {
+      animation: pulse-glow 2s infinite;
+      transform: scale(1.05);
     }
 
-    .contact a{ text-decoration:none; display:block; margin:10px 0; }
+    .cta-button:active {
+      transform: scale(0.98);
+    }
+
+    .feature-list {
+      animation: slideInUp 0.8s ease-out 0.2s both;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+      animation: slideInUp 0.8s ease-out forwards;
+    }
+
+    .feature-checkmark {
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(135deg, #ff6b35 0%, #ff0055 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+      margin-right: 1rem;
+      flex-shrink: 0;
+      margin-top: 0.25rem;
+    }
+
+    .feature-text {
+      font-size: 1.05rem;
+      color: #d1d5db;
+      line-height: 1.6;
+    }
+
+    .price-badge {
+      display: inline-block;
+      background: rgba(255, 107, 53, 0.2);
+      border: 2px solid #ff6b35;
+      color: #ff6b35;
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      animation: slideInUp 0.8s ease-out 0.4s both;
+    }
+
+    /* BotÃµes sociais */
+    .social-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: center;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .social-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      border: 2px solid transparent;
+    }
+
+    .whatsapp-button {
+      background: #25D366;
+      color: white;
+      border-color: #25D366;
+    }
+
+    .whatsapp-button:hover {
+      background: #20BA5A;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+    }
+
+    .tiktok-button {
+      background: #000000;
+      color: white;
+      border: 2px solid #00f2ea;
+    }
+
+    .tiktok-button:hover {
+      background: #00f2ea;
+      color: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(0, 242, 234, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.1rem;
+      }
+
+      .benefit-card {
+        padding: 1.2rem;
+      }
+
+      .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+      }
+
+      .social-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .social-button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    .section-spacing {
+      padding: 3rem 1.5rem;
+    }
+
+    .container-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
   </style>
-</head>
-
-<body>
-  <header class="ribbon">Oferta válida apenas hoje — Últimas vagas!</header>
-
-  <main class="wrap">
-
-    <!-- HERO -->
-    <section class="hero">
-      <h1 id="hero-title" class="title">
-        🚀 Transforme seu conhecimento em renda com os 2 melhores e-books para iniciantes 📚💰
-      </h1>
-
-      <p class="lead">
-        Acesse o <strong>Pacote Inicial (R$ 9,90)</strong> com <strong>9 e-books editáveis</strong> prontos para venda
-        e o <strong>Produto Premium (R$ 37,90)</strong> com conteúdo avançado para escalar suas vendas.
-        Tudo pronto para você começar a lucrar ainda hoje — mesmo sem experiência.
-      </p>
-
-      <button 
-        onclick="document.getElementById('pacotes').scrollIntoView({ behavior: 'smooth' })"
-        style="padding:14px 26px;background:var(--btn-start);color:#000;border:none;border-radius:12px;font-weight:800;font-size:16px;cursor:pointer;margin-top:10px;box-shadow: var(--btn-primary-shadow);display:block;margin-left:auto;margin-right:auto;">
-        Ver pacotes disponíveis
-      </button>
-    </section>
-
-    <!-- BENEFÍCIOS -->
-    <section class="section">
-      <h2>Benefícios do Pacote Premium</h2>
-
-      <div class="benefit"><div class="icon">📱</div><p><strong>Editável pelo celular</strong> — sem complicação.</p></div>
-      <div class="benefit"><div class="icon">🚀</div><p><strong>Comece a vender hoje</strong> — arquivos prontos.</p></div>
-      <div class="benefit"><div class="icon">♾️</div><p><strong>Revenda ilimitadamente</strong> — 100% do lucro é seu.</p></div>
-      <div class="benefit"><div class="icon">🎯</div><p><strong>Aprovado no Instagram</strong>.</p></div>
-      <div class="benefit"><div class="icon">❓</div><p><strong>Conteúdos organizados</strong>.</p></div>
-    </section>
-
-    <!-- PRODUTO PREMIUM -->
-    <section class="section">
-      <h2>🚀 Produto Premium – E-book Completo</h2>
-
-      <p style="color:#dbe9ff;">Conteúdo aprofundado, templates e estratégias para vender diariamente.</p>
-
-      <div class="benefit">📘 E-book completo</div>
-      <div class="benefit">💰 Estratégias avançadas</div>
-      <div class="benefit">📲 Material pronto</div>
-      <div class="benefit">♾️ Revenda liberada</div>
-      <div class="benefit">🔥 Alta conversão</div>
-    </section>
-
-    <!-- PACOTES -->
-    <section id="pacotes" class="product-area">
-      <h2 style="color:var(--accent);font-size:20px;font-weight:800;">
-        📚 Conteúdo Premium — como vem o material
-      </h2>
-
-      <div class="benefit" style="background:transparent;padding:8px 0;">
-        <p style="color:#dbe9ff;">
-          <strong>Pacote Inicial – R$ 9,90</strong><br>
-          • 9 e-books editáveis<br>
-          • Fácil de editar<br>
-          • Ideal para iniciantes
-        </p>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body>
+  <div class="app-wrapper">
+   <!-- Efeitos de fundo -->
+   <div class="glow-effect glow-orange"></div>
+   <div class="glow-effect glow-red"></div><!-- HERO SECTION -->
+   <section class="section-spacing relative z-10">
+    <div class="container-content">
+     <h1 class="hero-title" id="heroTitle">ðŸš€ EvoluÃ§Ã£o DiÃ¡ria Pro</h1>
+     <p class="hero-subtitle" id="heroSubtitle">Se vocÃª estÃ¡ aqui, Ã© porque quer parar de ficar sÃ³ assistindo conteÃºdo e comeÃ§ar a evoluir de verdade no digital ðŸ‘ŠðŸ”¥</p>
+    </div>
+   </section><!-- BENEFITS SECTION -->
+   <section class="section-spacing relative z-10">
+    <div class="container-content">
+     <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 2rem; color: #fff;">Aqui vocÃª vai ter acesso a:</h2>
+     <div class="feature-list" style="margin-bottom: 3rem;">
+      <div class="feature-item" style="animation-delay: 0s;">
+       <div class="feature-checkmark">
+        âœ“
+       </div>
+       <div class="feature-text">
+        COMO COMEÃ‡AR DO ZERO
+       </div>
       </div>
-
-      <div class="benefit" style="background:transparent;padding:8px 0;">
-        <p style="color:#dbe9ff;">
-          <strong>Produto Premium – R$ 37,90</strong><br>
-          • Estratégias avançadas<br>
-          • Templates profissionais<br>
-          • Para quem quer vender todos os dias
-        </p>
+      <div class="feature-item" style="animation-delay: 0.1s;">
+       <div class="feature-checkmark">
+        âœ“
+       </div>
+       <div class="feature-text">
+        COMO TREINAR O ALGORITMO
+       </div>
       </div>
-
-      <div style="margin-top:12px;text-align:center;">
-
-        <div class="price-big">
-          <div class="value">🔥 R$ 9,90 🔥</div>
-          <div style="color:#cfeefc;font-size:14px;margin-bottom:10px;">Pacote Inicial</div>
-          <a class="btn btn-yellow" href="https://pay.kiwify.com.br/8Vma5gd" style="min-width:260px;">Quero o Pacote R$ 9,90</a>
-        </div>
-
-        <div style="margin-top:16px;">
-          <div class="value" style="font-size:28px;color:#ffd97a;">
-            ⭐ <strong>R$ 37,90</strong> ⭐
-          </div>
-
-          <div style="color:#cfeefc;font-size:14px;margin-bottom:10px;">Produto Premium</div>
-
-          <a class="btn btn-yellow"
-             href="https://pay.kiwify.com.br/OpAUnyd"
-             style="min-width:260px;">
-             Quero o Premium R$ 37,90
-          </a>
-        </div>
+      <div class="feature-item" style="animation-delay: 0.2s;">
+       <div class="feature-checkmark">
+        âœ“
+       </div>
+       <div class="feature-text">
+        COMO CRIAR VÃDEOS QUE PEGAM VISUALIZAÃ‡ÃƒO
+       </div>
       </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section class="contact">
-      <h2 style="color:var(--accent);font-size:18px;">📞 Entre em contato</h2>
-
-      <a class="btn" style="background:linear-gradient(90deg,#25D366,#1ebe5d);color:#fff;"
-         href="https://wa.me/5531997099149?text=Ola%20Hiago,%20Quero%20acessar%20o%20seu%20grupo%20*MILIONARIO%20RAPIDO*%20🚀🔥.">
-        💬 Fale Conosco no WhatsApp
+      <div class="feature-item" style="animation-delay: 0.3s;">
+       <div class="feature-checkmark">
+        âœ“
+       </div>
+       <div class="feature-text">
+        CONSTÃ‚NCIA (O QUE FAZ A DIFERENÃ‡A)
+       </div>
+      </div>
+      <div class="feature-item" style="animation-delay: 0.4s;">
+       <div class="feature-checkmark">
+        âœ“
+       </div>
+       <div class="feature-text">
+        MENTALIDADE NO DIGITAL
+       </div>
+      </div>
+      <div class="feature-item" style="animation-delay: 0.5s;">
+       <div class="feature-checkmark">
+        âœ“
+       </div>
+       <div class="feature-text">
+        CAMINHO PRA COMEÃ‡AR A GANHAR DINHEIRO
+       </div>
+      </div>
+      <div class="feature-item" style="animation-delay: 0.6s;">
+       <div class="feature-checkmark">
+        âœ“
+       </div>
+       <div class="feature-text">
+        MARKETING DIGITAL NA PRÃTICA (VENDAS MESMO)
+       </div>
+      </div>
+     </div><!-- Diferencial -->
+     <div class="benefit-card" style="margin-bottom: 2rem; animation-delay: 0.5s;">
+      <div style="font-size: 1.3rem; color: #ff6b35; font-weight: 800; margin-bottom: 1rem;">
+       ðŸ’£ A diferenÃ§a aqui nÃ£o Ã© teoriaâ€¦ Ã© direÃ§Ã£o.
+      </div>
+      <p style="color: #d1d5db; line-height: 1.8;">Enquanto a maioria fica perdida tentando adivinhar o que fazer, aqui vocÃª vai ter um caminho claro pra seguir.</p>
+     </div><!-- Objetivo -->
+     <div class="benefit-card" style="margin-bottom: 2rem; animation-delay: 0.6s;">
+      <div style="font-size: 1.3rem; color: #ff6b35; font-weight: 800; margin-bottom: 1rem;">
+       ðŸ‘‰ O objetivo Ã© simples
+      </div>
+      <p style="color: #d1d5db; line-height: 1.8;">Te ajudar a evoluir mais rÃ¡pido e evitar os erros que fazem a maioria desistir.</p>
+     </div>
+     <div class="benefit-card" style="animation-delay: 0.7s;">
+      <div style="font-size: 1.3rem; color: #ff6b35; font-weight: 800; margin-bottom: 1rem;">
+       ðŸŽ¯ VocÃª tambÃ©m vai ter
+      </div>
+      <p style="color: #d1d5db; line-height: 1.8;">Acesso a suporte direto comigo, mentoria no grupo, vÃ­deos prontos, descriÃ§Ãµes de vÃ­deos prontas, templates e tudo mais que vocÃª precisar. Qualquer dÃºvida, dificuldade ou ferramenta que precisar â€” eu vou estar mandando no grupo pra vocÃª nÃ£o ficar travado. ðŸ’ª</p>
+     </div>
+    </div>
+   </section><!-- CTA SECTION -->
+   <section class="section-spacing relative z-10">
+    <div class="container-content text-center">
+     <p style="font-size: 1.2rem; color: #9ca3af; margin-bottom: 2rem; font-weight: 600;">Se vocÃª seguir o processo, a evoluÃ§Ã£o vem ðŸ‘ŠðŸ”¥</p>
+     <div style="margin-bottom: 2rem;">
+      <div class="price-badge" id="priceBadge">
+       R$ 19,90
+      </div>
+     </div>
+     <button class="cta-button" id="ctaButton" onclick="handleCTA()">Quero Evoluir Agora</button>
+     
+     <!-- BotÃµes Sociais -->
+     <div class="social-buttons">
+      <a href="https://wa.me/5531997099149" target="_blank" rel="noopener noreferrer" class="social-button whatsapp-button">
+       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+       </svg>
+       WhatsApp
       </a>
-
-      <a class="btn" style="background:linear-gradient(90deg,#1e88e5,#42a5f5);color:#fff;margin-top:10px;"
-         href="mailto:hiago22nogueira@gmail.com?subject=Acesso%20ao%20Grupo&body=Ola%20Hiago,%20Quero%20acessar%20o%20seu%20grupo%20*MILIONARIO%20RAPIDO*%20🚀🔥.">
-        ✉️ Enviar E-mail
+      <a href="https://www.tiktok.com/@foco.mentemilionaria?_r=1&_t=ZS-96Hv7hPZGcr" target="_blank" rel="noopener noreferrer" class="social-button tiktok-button">
+       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+       </svg>
+       TikTok
       </a>
-    </section>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer style="text-align: center; padding: 2rem; color: #6b7280; font-size: 0.9rem; border-top: 1px solid rgba(255, 107, 53, 0.1); margin-top: auto;">
+    <p>Â© 2024 EvoluÃ§Ã£o DiÃ¡ria Pro. Todos os direitos reservados. ðŸš€</p>
+   </footer>
+  </div>
+  <script>
+    // ConfiguraÃ§Ã£o inicial do Element SDK
+    const defaultConfig = {
+      header_title: "ðŸš€ EvoluÃ§Ã£o DiÃ¡ria Pro",
+      header_subtitle: "Se vocÃª estÃ¡ aqui, Ã© porque quer parar de ficar sÃ³ assistindo conteÃºdo e comeÃ§ar a evoluir de verdade no digital ðŸ‘ŠðŸ”¥",
+      cta_button_text: "Quero Evoluir Agora",
+      price_text: "R$ 19,90"
+    };
 
-  </main>
-</body>
+    let config = { ...defaultConfig };
+
+    const element = {
+      defaultConfig,
+      onConfigChange: async (newConfig) => {
+        config = newConfig;
+        
+        document.getElementById("heroTitle").textContent = config.header_title || defaultConfig.header_title;
+        document.getElementById("heroSubtitle").textContent = config.header_subtitle || defaultConfig.header_subtitle;
+        document.getElementById("ctaButton").textContent = config.cta_button_text || defaultConfig.cta_button_text;
+        document.getElementById("priceBadge").textContent = config.price_text || defaultConfig.price_text;
+      },
+      mapToCapabilities: () => ({
+        recolorables: [],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      }),
+      mapToEditPanelValues: () => new Map([
+        ["header_title", config.header_title || defaultConfig.header_title],
+        ["header_subtitle", config.header_subtitle || defaultConfig.header_subtitle],
+        ["cta_button_text", config.cta_button_text || defaultConfig.cta_button_text],
+        ["price_text", config.price_text || defaultConfig.price_text]
+      ])
+    };
+
+    // Inicializar SDK
+    if (window.elementSdk) {
+      window.elementSdk.init(element);
+    }
+
+    // FunÃ§Ã£o do CTA
+    function handleCTA() {
+      window.open("https://pay.kiwify.com.br/t5n2tpv", "_blank", "noopener,noreferrer");
+    }
+
+    // Chamar Lucide icons
+    lucide.createIcons();
+  </script>
+  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9fa3599b530f5023',t:'MTc3ODUyNTIyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9fa5f3cbe42d5f28',t:'MTc3ODU1MjUxMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+ </body>
 </html>
+
